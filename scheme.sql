@@ -106,7 +106,7 @@ create table Attend (
 create table Lists (
 	listid int(10),
 	luid varchar(20),
-	primary key (luid, listid),
+	primary key (listid),
 	foreign key (luid) references User(uid)
 );
 
@@ -122,4 +122,11 @@ create table FollowList (
 	fluid varchar(20),
 	foreign key (flistid) references Lists(listid),
 	foreign key (fluid) references User(uid)
+);
+
+create table Hold (
+	haid varchar(20),
+    hcid int(20),
+	foreign key (haid) references Art(aid),
+	foreign key (hcid) references Concert(cid)
 );
